@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>敬·忌|Worship and Taboo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background: url('./img/bg.jpg') no-repeat center center fixed; background-size: cover;">
+  <header>
+    <!--大标题（网站名称）-->
+    <div class="title">
+      <h1>敬·忌 Worship and Taboo</h1>      
+    </div>
+    <!--网页导航栏-->
+    <nav>
+      <ul>
+        <li><a href="index.html #Exhibition">展览/Exhibition</a></li>
+        <li><a href="index.html #Special">特展/Special</a></li>
+        <li><a href="index.html #About">关于/About</a></li>
+        <li><a href="upload.html">上传/Upload</a></li>        
+      </ul>
+    </nav>   
+  </header>
+  
+  <main>
+    <h1>👆Upload Your Own Work上传你的作品！</h1>
+    <p>
+        如果你也经历受到民俗思想影响的一些事情，
+        欢迎你投稿你拍到的照片，以及用它生成的图片。
+        告诉我你的名字，给你的作品起个名字，添加一个描述，然后发到我的邮箱！
+        通过审核的作品将会展示在网页上，让大家一起感受到更多的
+        中国传统民俗思想的魅力和缺点，给大家带来更多思考！
+    </p>
+  </main>
+ 
+  <!--网页底部-->
+  <footer>
+    <p>Copyright 2022 Zilu Zoe Tang</p>
+    <p>Contact me: ZTang0705@outlook.com</p>
+  </footer>    
+</body>
+
+<!--以下javascript代码-->
+<script>
+  const exhibitionCards = document.querySelectorAll('.exhibition-card');
+
+  exhibitionCards.forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('expanded');
+    });
+  });
+
+  exhibitionCards.forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('expanded');
+
+      // 如果其他的名片已经展开，则收起来
+      exhibitionCards.forEach(otherCard => {
+        if (otherCard !== card && otherCard.classList.contains('expanded')) {
+          otherCard.classList.remove('expanded');
+        }
+     });
+   });
+  });
+
+  function heightToTop(ele){
+    //ele为指定跳转到该位置的DOM节点
+    let bridge = ele;
+    let root = document.body;
+    let height = 0;
+    do{
+        height += bridge.offsetTop;
+        bridge = bridge.offsetParent;
+    }while(bridge !== root)
+ 
+    return height;
+}
+  //按钮点击时
+  someBtn.addEventListener('click',function(){
+    window.scrollTo({
+        top:heightToTop(targetEle),
+        behavior:'smooth'
+    })
+  })
+
+</script>
+</html>
